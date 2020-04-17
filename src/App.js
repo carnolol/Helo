@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Nav from './components/Nav/Nav'
+import Auth from './components/Auth'
+import {connect} from 'react-redux'
+import routes from './routes'
 
-function App() {
+// AUTH - handles the Login & Register of a new user
+// DASHBOARD - will hold all posts, use .get to get all posts from db
+//POST - 
+
+// The Nav component should not render if the current view is the Auth view.
+
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {props.isLoggedIn ? <Nav/> : <Auth/>}
+     {routes}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = reduxState => reduxState
+
+export default connect(mapStateToProps, {})(App)

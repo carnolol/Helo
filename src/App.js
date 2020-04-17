@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css'
 import Nav from './components/Nav/Nav'
 import Auth from './components/Auth'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import routes from './routes'
 
 // AUTH - handles the Login & Register of a new user
@@ -15,8 +16,11 @@ function App(props) {
   console.log(props)
   return (
     <div className="App">
-      {props.isLoggedIn ? <Nav/> : <Auth/>}
-     {routes}
+      {props.isLoggedIn ? <Nav/> : null}
+      {/* <Link to={props}>
+        <Nav />
+      </Link> */}
+      {routes}
     </div>
   );
 }
@@ -24,3 +28,5 @@ function App(props) {
 const mapStateToProps = reduxState => reduxState
 
 export default connect(mapStateToProps, {})(App)
+
+// export default App

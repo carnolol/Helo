@@ -14,7 +14,7 @@ module.exports = {
             req.session.user = existingUser[0]
             res.status(200).send(req.session.user)
         } else {
-            res.status(403).send(existingUser[0])
+            res.status(403).send('login failed')
         }
         console.log(req.session.user)
     },

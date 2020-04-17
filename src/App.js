@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css'
 import Nav from './components/Nav/Nav'
-import Auth from './components/Auth'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import routes from './routes'
 
 // AUTH - handles the Login & Register of a new user
@@ -16,17 +14,14 @@ function App(props) {
   console.log(props)
   return (
     <div className="App">
-      {props.isLoggedIn ? <Nav/> : null}
-      {/* <Link to={props}>
-        <Nav />
-      </Link> */}
+      {props.location.pathname ==='/' ? null : <Nav/>}
       {routes}
     </div>
   );
 }
 
-const mapStateToProps = reduxState => reduxState
+// const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {})(App)
+// export default connect(mapStateToProps, {})(App)
 
-// export default App
+export default withRouter(App)

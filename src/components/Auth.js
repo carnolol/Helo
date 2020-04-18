@@ -47,22 +47,22 @@ export class Auth extends Component {
             <div className='landing-page'>
                 <div className='auth-form'>
                     <img className='helo-logo'
-                        src=''
+                        src='../pictures/helo_logo.png'
                         alt='logo'/>
                     <h1>HELO</h1>
-                    <p>Username:</p>
+                    <div className="auth-container"><p>Username:</p>
                     <input name='username'
-                        onChange={e => this.handleInput(e)} />
+                    onChange={e => this.handleInput(e)} />
                     <p>Password: </p>
                     <input name='password'
-                        onChange={e => this.handleInput(e)} />
+                    onChange={e => this.handleInput(e)} />
                     <br />
                     <Link to='/dashboard'>
-                        <button onClick={() => this.handleLogin()} >Login</button>
+                    <button onClick={() => this.handleLogin()} >Login</button>
                     </Link>
                     <Link to='/dashboard'>
-                        <button onClick={() => this.handleRegister()}>Register</button>
-                    </Link>
+                    <button onClick={() => this.handleRegister()}>Register</button>
+                    </Link></div>
                 </div>
             </div>
         )

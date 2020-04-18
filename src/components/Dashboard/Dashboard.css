@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.search-bar{
+    vertical-align: baseline;
+    margin-top: 5vh;
+    margin-left: 15vw;
+    height: 9vh;
+    width: 80vw;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-between;
+    align-items:center
+}

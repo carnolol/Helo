@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { loginUser, makeUser } from '../ducks/reducer'
+import logo from '../pictures/helo_logo.png'
 import { connect } from 'react-redux'
 import './Auth.css'
 
@@ -47,22 +48,24 @@ export class Auth extends Component {
             <div className='landing-page'>
                 <div className='auth-form'>
                     <img className='helo-logo'
-                        src='../pictures/helo_logo.png'
-                        alt='logo'/>
-                    <h1>HELO</h1>
-                    <div className="auth-container"><p>Username:</p>
-                    <input name='username'
-                    onChange={e => this.handleInput(e)} />
-                    <p>Password: </p>
-                    <input name='password'
-                    onChange={e => this.handleInput(e)} />
-                    <br />
-                    <Link to='/dashboard'>
-                    <button onClick={() => this.handleLogin()} >Login</button>
-                    </Link>
-                    <Link to='/dashboard'>
-                    <button onClick={() => this.handleRegister()}>Register</button>
-                    </Link></div>
+                        src={logo}
+                        alt='logo' />
+                    <h1 className='helo'>HELO</h1>
+                    <div className="auth-container">
+                        <p>Username:</p>
+                        <input name='username'
+                            onChange={e => this.handleInput(e)} />
+                        <p>Password: </p>
+                        <input name='password'
+                            onChange={e => this.handleInput(e)} />
+                        <br />
+                        <Link to='/dashboard'>
+                            <button onClick={() => this.handleLogin()} >Login</button>
+                        </Link>
+                        <Link to='/dashboard'>
+                            <button onClick={() => this.handleRegister()}>Register</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         )

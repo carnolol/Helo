@@ -29,6 +29,7 @@ export class Dashboard extends Component {
         })
     }
     render() {
+        //need to write a get method to populate this.state.posts
         console.log('props in dashboard??', this.props)
         const allPosts = this.state.posts.map(post => {
             return <div className='single-post'>

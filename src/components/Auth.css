@@ -27,7 +27,18 @@
 }
 
 .helo-logo{
-    border: 2px solid black;
+    height: 34%;
+    width: 34%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.helo{
+    color: white;
+    font-weight: bold;
+    font-size: 55px;
+    font-family: sans-serif;
+    /* font: inherit; */
 }
 
 /* .auth-container{

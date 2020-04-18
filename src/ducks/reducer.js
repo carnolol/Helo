@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const initialState = {
     // user:{
+    //     id:0,
     //     username: '',
-    //     profile: '',
-    //     userId:0  
+    //     profile: ''
     // },
     username: '',
     profile: 'https://images.designtrends.com/wp-content/uploads/2015/12/02061350/Neon-Backgrounds.jpg',
@@ -25,10 +25,14 @@ export function loginUser(username) {
 
 export function makeUser(id, username, profile_pic) {
     // //axios call to make new user goes here? make sure to destructure id,username,profile_pic.then(res => res.data)
-    // return {
-    //     type: MAKE_USER,
-    //     payload: data
-    // }
+    return {
+        type: MAKE_USER,
+        payload: {
+            id,
+            username,
+            profile_pic
+        }
+    }
 }
 
 export default function reducer(state = initialState, action) {
@@ -36,7 +40,7 @@ export default function reducer(state = initialState, action) {
         case LOGIN_USER:
             return { ...state, username: action.payload }
         case MAKE_USER:
-            return { ...state, username: action.data.username, profile: action.data.profile, userId: action.data.userId }
+            return { ...state, username: action.payload.id.username, } // we can add more stuff here if we need too
         default:
             return initialState
     }

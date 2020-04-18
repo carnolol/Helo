@@ -13,12 +13,22 @@ export class Dashboard extends Component {
     getAllPosts = () => {
 
     }
-    resetSeatch = () => {
+    resetSearch = () => {
         
+    }
+    handleInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
     render() {
         return (
             <div>
+                <input placeholder='Search by Title'
+                    onChange={e => this.handleInput(e)}
+                    name='search'
+                />
+                <p>{this.state.search}</p>
                 dashboard
             </div>
         )

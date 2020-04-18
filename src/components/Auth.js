@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import {loginUser, makeUser} from '../ducks/reducer'
 import {connect} from 'react-redux'
+import './Auth.css'
 
 
 export class Auth extends Component {
@@ -35,15 +36,15 @@ export class Auth extends Component {
         axios
             .post('/api/auth/login', body)
             .then(res => {
-                this.props.loginUser(res.data)
+                this.props.makeUser(res.data)
                 // need to do props histy push stufF?
             }).catch(err => alert(`Unable to login because of ${err}`))
     }
     refresh
     render() {
-        console.log('redux state????', this.props)
+        // console.log('redux state????', this.props)
         return (
-            <div>
+            <div className='landing-page'>
                 <h1>HELO</h1>
                 <p>Username:</p>
                 <input name='username' 

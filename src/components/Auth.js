@@ -47,6 +47,7 @@ export class Auth extends Component {
             <div className='landing-page'>
                 <div className='auth-form'>
                     <img className='helo-logo'
+                        src=''
                         alt='logo'/>
                     <h1>HELO</h1>
                     <p>Username:</p>

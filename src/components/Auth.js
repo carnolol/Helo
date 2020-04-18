@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import {loginUser, makeUser} from '../ducks/reducer'
-import {connect} from 'react-redux'
+import { loginUser, makeUser } from '../ducks/reducer'
+import { connect } from 'react-redux'
 import './Auth.css'
 
 
@@ -45,20 +45,24 @@ export class Auth extends Component {
         // console.log('redux state????', this.props)
         return (
             <div className='landing-page'>
-                <h1>HELO</h1>
-                <p>Username:</p>
-                <input name='username' 
-                    onChange={e => this.handleInput(e)} />
-                <p>Password: </p>
-                <input name='password' 
-                    onChange={e => this.handleInput(e)} />
-                    <br/>
-                <Link to='/dashboard'>
-                    <button onClick={() => this.handleLogin()} >Login</button>
-                </Link>
-                <Link to='/dashboard'>
-                    <button onClick={() => this.handleRegister()}>Register</button>
-                </Link>
+                <div className='auth-form'>
+                    <img className='helo-logo'
+                        alt='logo'/>
+                    <h1>HELO</h1>
+                    <p>Username:</p>
+                    <input name='username'
+                        onChange={e => this.handleInput(e)} />
+                    <p>Password: </p>
+                    <input name='password'
+                        onChange={e => this.handleInput(e)} />
+                    <br />
+                    <Link to='/dashboard'>
+                        <button onClick={() => this.handleLogin()} >Login</button>
+                    </Link>
+                    <Link to='/dashboard'>
+                        <button onClick={() => this.handleRegister()}>Register</button>
+                    </Link>
+                </div>
             </div>
         )
     }
@@ -66,5 +70,5 @@ export class Auth extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {loginUser, makeUser})(Auth)
+export default connect(mapStateToProps, { loginUser, makeUser })(Auth)
 

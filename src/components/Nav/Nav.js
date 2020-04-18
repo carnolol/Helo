@@ -6,13 +6,15 @@ import './Nav.css'
 // need to change buttons into images provided.
 export class Nav extends Component {
     render() {
+        console.log('redux props??', this.props)
         return (
             <div className='nav-bar'>
-                <Link to='/dashboard'>
                     <img placeholder="profile pic"
                         className="profile-pic-nav
                         "
                         src={this.props.profile}/>
+                        <p>{this.props.username}</p>
+                <Link to='/dashboard'>
                     <button>Home</button>
                 </Link>
                 <Link to='/post/:postid'>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import {loginUser} from '../ducks/reducer'
+import {loginUser, makeUser} from '../ducks/reducer'
 import {connect} from 'react-redux'
 
 
@@ -41,7 +41,7 @@ export class Auth extends Component {
     }
     refresh
     render() {
-        // console.log(this.props.history)
+        console.log('redux state????', this.props)
         return (
             <div>
                 <h1>HELO</h1>
@@ -65,5 +65,5 @@ export class Auth extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {loginUser})(Auth)
+export default connect(mapStateToProps, {loginUser, makeUser})(Auth)
 

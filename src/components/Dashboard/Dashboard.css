@@ -15,3 +15,38 @@
     align-content: space-between;
     align-items:center
 }
+
+.single-post{
+    margin: 25px;
+    vertical-align: baseline;
+    margin-left: 15vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:10vh;
+    border: 2px solid crimson;
+    width: 80vw;
+}
+
+.post-title{
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.name{
+    display: flex;
+    margin-right: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-username{
+    margin-right: 30px;
+}
+
+.post-profile-pic{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+    border: 2px solid black;
+}

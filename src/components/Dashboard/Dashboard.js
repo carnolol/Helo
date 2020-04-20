@@ -13,7 +13,7 @@ export class Dashboard extends Component {
         }
     }
     componentDidMount = () => {
-        axios.get('/api/posts').then(res => this.setState({posts: res.data}))
+        axios.get('/api/posts').then(res => this.setState({ posts: res.data }))
     }
     getFilteredPosts = () => {
         axios.get('/api/posts/:id').then()
@@ -35,10 +35,12 @@ export class Dashboard extends Component {
         //need to write a get method to populate this.state.posts
         console.log('props in dashboard??', this.props)
         const allPosts = this.state.posts.map(post => {
+            console.log(post.profile_pic)
             return <div className='single-post'>
-                <h1>{post.title}</h1>
-                <img src={post.img} />
-                <p>by: {post.username}</p>
+                    <h3 className='post-title' >{post.title}</h3>
+                <div className='name'  >
+                    <p className='post-username' >by: {post.username}</p>
+                    <img src={post.profile_pic} alt='profile pic img' className='post-profile-pic' /></div>
             </div>
         })
         return (
@@ -54,9 +56,9 @@ export class Dashboard extends Component {
                     <p>My Posts</p>
                     <input type='checkbox' onClick={() => this.handleEdit()} />
                 </div>
-                Dashboard
                 <div>
                     {allPosts}
+                Dashboard
                 </div>
             </div>
         )

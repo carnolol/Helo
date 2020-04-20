@@ -1,11 +1,7 @@
 import axios from 'axios'
 
+
 const initialState = {
-    // user:{
-    //     id:0,
-    //     username: '',
-    //     profile: ''
-    // },
     username: '',
     profile: 'https://images.designtrends.com/wp-content/uploads/2015/12/02061350/Neon-Backgrounds.jpg',
     userId: 0,
@@ -40,7 +36,9 @@ export default function reducer(state = initialState, action) {
         case LOGIN_USER:
             return { ...state, username: action.payload }
         case MAKE_USER:
-            return { ...state, username: action.payload.id.username, } // we can add more stuff here if we need too
+            // return {...state, username: action.payload.payload, profile_pic: action.payload, profile_pic: action.payload}
+            return { ...state, username: action.payload.id.username, profile_pic: action.payload.id.profile_pic, userId: action.payload.id.id} 
+            // we can add more stuff here if we need too
         default:
             return initialState
     }

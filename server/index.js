@@ -2,6 +2,7 @@ require('dotenv').config()
 const massive = require('massive')
 const express = require('express')
 const session = require('express-session')
+const postCtrl = require('./postController.js')
 const authController = require('./controller')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} =process.env
 const app = express()
@@ -34,3 +35,7 @@ massive({
 
 app.post('/api/auth/login', authController.login)
 app.post('/api/auth/register', authController.register)
+
+
+app.get('/api/posts/:id', postCtrl.getFilteredPosts)
+app.get('/api/posts', postCtrl.getEveryPost)

@@ -12,8 +12,11 @@ export class Dashboard extends Component {
             checked: true
         }
     }
-    getAllPosts = () => {
-
+    componentDidMount = () => {
+        axios.get('/api/posts').then(res => this.setState({posts: res.data}))
+    }
+    getFilteredPosts = () => {
+        axios.get('/api/posts/:id').then()
     }
     resetSearch = () => {
 
@@ -34,8 +37,8 @@ export class Dashboard extends Component {
         const allPosts = this.state.posts.map(post => {
             return <div className='single-post'>
                 <h1>{post.title}</h1>
-                <img src={this.props.profile} />
-                <p>by: {this.props.username}</p>
+                <img src={post.img} />
+                <p>by: {post.username}</p>
             </div>
         })
         return (

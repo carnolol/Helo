@@ -17,7 +17,7 @@ export class Post extends Component {
     render() {
         return (
             <div>
-                POST
+              NEW POST CONTAINER GOES HERE
             </div>
         )
     }

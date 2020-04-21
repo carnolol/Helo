@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import pic from '../../pictures/no_image.jpg'
 import './Form.css'
 
@@ -28,20 +28,20 @@ export class Form extends Component {
                     <h1 className='form-title' >New Post</h1>
                     <p>Title:</p>
                     <input onChange={(e) => this.handleChange(e)}
-                    name='title'/>
-                    <img alt='new-pic' 
+                        name='title' />
+                    <img alt='new-pic'
                         className='form-pic'
-                        src={this.state.img ? this.state.img : pic}/>
+                        src={this.state.img ? this.state.img : pic} />
                     <p>Image URL:</p>
                     <input onChange={(e) => this.handleChange(e)}
-                        name='img'/>
+                        name='img' />
                     <p>Content</p>
                     <input onChange={(e) => this.handleChange(e)}
-                        name='content'/>
+                        name='content' />
                     <Link to='/dashboard'>
                         <button onClick={() => this.addNewPost()}>post</button>
                     </Link>
-            </div>
+                </div>
             </div>
         )
     }

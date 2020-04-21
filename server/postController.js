@@ -42,6 +42,7 @@ module.exports = {
     },
     addNewPost: async (req, res) => {
         const db =req.app.get('db')
+        const {title, img, content} = req.body
 
     }
 }

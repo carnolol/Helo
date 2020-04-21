@@ -1,4 +1,4 @@
 INSERT INTO posts
-(title, img, content)
+(author_id, title, img, content)
 VALUES
-($1, $2, $3)
+($1, $2, $3, $4)

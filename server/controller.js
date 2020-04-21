@@ -10,13 +10,17 @@ module.exports = {
         }
         const authenticated = bcrypt.compareSync(password, existingUser[0].password)
         if(authenticated){
+            console.log('user authenticated')
+            console.log(existingUser[0])
             delete existingUser[0].password
             req.session.user = existingUser[0]
+            console.log(req.session)
             res.status(200).send(req.session.user)
         } else {
+            console.log('running else')
             res.status(403).send('login failed')
         }
-        console.log(req.session.user)
+        // console.log(req.session.user)
     },
     register: async (req, res) => {
         const db = req.app.get('db')
@@ -34,11 +38,20 @@ module.exports = {
         res.status(200).send(`Welcome to Helo ${username}`)
     },
     logout: (req, res) => {
+        if(req.session.user){
         req.session.destroy()
-        res.status(200).send(req.session.user)
+        res.sendStatus(200)
+        }
     },
     getUser: (req, res) => {
-        
+        console.log('this is from getuser')
+        console.log(req.session)
+        if(req.session.user){
+            res.status(200).send(req.session.user)
+        } else {
+            res.sendStatus(404)
+        }
+        // endpoint that sends back user on session if there is one. used to refresh front end we can still get there info. attach into componentDidMount. 
     }
 
 }

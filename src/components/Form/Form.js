@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import pic from '../../pictures/no_image.jpg'
@@ -19,9 +20,16 @@ export class Form extends Component {
         })
     }
     addNewPost = () => {
-
-    }
+        const body = {
+            author_id: this.props.userId,
+            title: this.state.title,
+            img: this.state.img,
+            content: this.state.content
+        }
+        axios.post('/api/post', body)
+         }
     render() {
+        console.log(this.props)
         return (
             <div className='test' >
                 <div className='new-post-master'>

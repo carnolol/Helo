@@ -42,7 +42,9 @@ module.exports = {
     },
     addNewPost: async (req, res) => {
         const db =req.app.get('db')
-        const {title, img, content} = req.body
+        const {author_id, title, img, content} = req.body
 
+        const newPost = await db.add_post([author_id, title, img, content])
+        res.status(200).send(newPost)
     }
 }

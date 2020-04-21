@@ -17,11 +17,11 @@ export class Dashboard extends Component {
         axios.get('/api/posts').then(res => this.setState({ posts: res.data }))
 
     }
-    componentDidUpdate = (prevState) => {
-        if (prevState.posts !== this.state.posts) {
-            this.componentDidMount()
-        }
-    }
+    // componentDidUpdate = (prevState) => {
+    //     if (prevState.posts !== this.state.posts) {
+    //         this.componentDidMount()
+    //     }
+    // }
     getFilteredPosts = () => { // working here. 1030pm
         axios.get(`/api/posts/${this.props.userId}?userposts=${this.state.checked}&search=${this.state.search}`).then(res => {
             this.setState({
@@ -31,7 +31,7 @@ export class Dashboard extends Component {
         // not sure how to finish this. 
     }
     resetSearch = () => {
-
+        this.setState({search: ''})
     }
     handleEdit = () => {
         this.setState({

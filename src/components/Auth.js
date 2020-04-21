@@ -39,7 +39,7 @@ export class Auth extends Component {
             .then(res => {
                 this.props.makeUser(res.data)
                 // need to do props histy push stufF?
-            }).catch(err => alert(`Unable to login because of ${err}`))
+            }).catch( err => alert(`Unable to login because username does not exist ${err}`))
     }
     refresh
     render() {

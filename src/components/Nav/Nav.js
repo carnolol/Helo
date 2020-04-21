@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import {logoutUser, updateUser} from '../../ducks/reducer'
+import axios from 'axios'
 import home from '../../pictures/home_logo.png'
 import newPostLogo from '../../pictures/new_logo.png'
 import cancel from '../../pictures/shut_down.png'
@@ -8,6 +10,18 @@ import './Nav.css'
 
 // need to change buttons into images provided.
 export class Nav extends Component {
+
+    componentDidMount = () => {
+        // hit endpoint GetUser from backend here & put on redux
+        axios.get('/api/auth/user').then(res => {
+            this.props.updateUser(res.data)
+        })
+    }
+    handleLogout = () => {
+        axios.delete('/api/auth/logout').then(() => {
+            this.props.logoutUser()
+        }) 
+    }
     render() {
         // console.log('redux props??', this.props)
         return (
@@ -32,6 +46,7 @@ export class Nav extends Component {
                 </div>
                 <Link to='/'>
                     <img className='power'
+                        onClick={()=> this.handleLogout()}
                         alt='power'
                         src={cancel} />
                 </Link>
@@ -42,5 +57,5 @@ export class Nav extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, null)(Nav)
+export default connect(mapStateToProps, {logoutUser, updateUser})(Nav)
 // might need to change null

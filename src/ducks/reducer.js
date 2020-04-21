@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 
 const initialState = {
@@ -7,15 +7,31 @@ const initialState = {
     userId: 0,
     isLoggedIn: false
 }
-
+const LOGOUT_USER = 'LOGOUT_USER'
 const LOGIN_USER = 'LOGIN_USER'
 const MAKE_USER = 'MAKE_USER'
+const UPDATE_USER = 'UPDATE_USER'
 
 // needs to not be user. not sure what it does need to be tho
+
+export function updateUser(userObj){
+    return{
+        type: UPDATE_USER,
+        payload: userObj
+    }
+}
+
 export function loginUser(username) {
     return {
         type: LOGIN_USER,
         payload: username
+    }
+}
+
+export function logoutUser() {
+    return {
+        type: LOGOUT_USER, 
+        payload: initialState
     }
 }
 
@@ -35,8 +51,11 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case LOGIN_USER:
             return { ...state, username: action.payload }
+        case UPDATE_USER:
+            return{...state, ...action.payload, isLoggedIn: true}
+        case LOGOUT_USER:
+            return {...state, ...action.payload}
         case MAKE_USER:
-            // return {...state, username: action.payload.payload, profile_pic: action.payload, profile_pic: action.payload}
             return { ...state, username: action.payload.id.username, profile_pic: action.payload.id.profile_pic, userId: action.payload.id.id} 
             // we can add more stuff here if we need too
         default:

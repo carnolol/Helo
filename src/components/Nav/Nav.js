@@ -24,7 +24,7 @@ export class Nav extends Component {
                             alt='home'
                             src={home} />
                     </Link>
-                    <Link to='/post/:postid'>
+                    <Link to='/new'>
                         <img alt='new post'
                             className="new-post"
                             src={newPostLogo} />

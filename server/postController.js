@@ -2,10 +2,8 @@ module.exports = {
     getFilteredPosts: async (req, res) => {
         const db = req.app.get('db')
         const allPosts = await db.get_posts()
-        // const everyPost = await db.get_every_post()
         const {id} = req.params
         const {userposts, search} = req.query
-
         // we use == here because the incoming boolean will be a string. 
         if(userposts == true && search.length > 0){
             const filteredPosts = allPosts.filter(post => {
@@ -13,7 +11,7 @@ module.exports = {
                     return post
                 }
             })
-            return res.status(200).send(filteredPosts)
+            return res.status(200).send(filteredPosts).catch(err => console.log(`err 1 ${err}`))
         }
         if(userposts == false && search.length === 0){
             const filteredPosts = allPosts.filter(post => {
@@ -21,7 +19,7 @@ module.exports = {
                     return post
                 }
             })
-            return res.status(200).send(filteredPosts)
+            return res.status(200).send(filteredPosts).catch(err => console.log(`err 2 ${err}`))
             // should respond with all posts where current user is NOT the author
         }
         if(userposts == false && search.length > 0){ 
@@ -32,9 +30,9 @@ module.exports = {
                     return post
                 }
             })
-            return res.status(200).send(filteredPosts)
+            return res.status(200).send(filteredPosts).catch(err => console.log(`err 3 ${err}`))
         }
-            res.status(200).send(allPosts)
+            res.status(200).send(allPosts).catch(err => console.log(`err w/ getFilteredPosts${err}`))
     },
     getEveryPost: async (req, res) => {
         const db = req.app.get('db')

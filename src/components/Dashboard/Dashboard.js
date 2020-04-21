@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Dashboard.css'
 import axios from 'axios'
@@ -14,9 +15,20 @@ export class Dashboard extends Component {
     }
     componentDidMount = () => {
         axios.get('/api/posts').then(res => this.setState({ posts: res.data }))
+
     }
-    getFilteredPosts = () => {
-        axios.get('/api/posts/:id').then()
+    componentDidUpdate = (prevState) => {
+        if (prevState.posts !== this.state.posts) {
+            this.componentDidMount()
+        }
+    }
+    getFilteredPosts = () => { // working here. 1030pm
+        axios.get(`/api/posts/${this.props.userId}?userposts=${this.state.checked}&search=${this.state.search}`).then(res => {
+            this.setState({
+                posts: res.data
+            })
+        }).catch(err => console.log(err))
+        // not sure how to finish this. 
     }
     resetSearch = () => {
 
@@ -32,19 +44,20 @@ export class Dashboard extends Component {
         })
     }
     render() {
-        //need to write a get method to populate this.state.posts
-        console.log('props in dashboard??', this.props)
+        // console.log(this.state.posts)
         const allPosts = this.state.posts.map(post => {
-            console.log(post.profile_pic)
-            return <div className='single-post'>
+            return <Link to='/post/:postid'>
+                <div className='single-post'>
                     <h3 className='post-title' >{post.title}</h3>
-                <div className='name'  >
-                    <p className='post-username' >by: {post.username}</p>
-                    <img src={post.profile_pic} alt='profile pic img' className='post-profile-pic' /></div>
-            </div>
+                    <div className='name'  >
+                        <p className='post-username' >by: {post.username}</p>
+                        <img src={post.profile_pic} alt='profile pic img' className='post-profile-pic' />
+                    </div>
+                </div>
+            </Link>
         })
         return (
-            <div>
+            <div className='dashboard-main'>
                 <div className='search-bar'>
                     <input placeholder='Search by Title'
                         onChange={e => this.handleInput(e)}
@@ -58,7 +71,6 @@ export class Dashboard extends Component {
                 </div>
                 <div>
                     {allPosts}
-                Dashboard
                 </div>
             </div>
         )

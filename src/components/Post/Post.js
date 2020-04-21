@@ -17,7 +17,7 @@ export class Post extends Component {
     render() {
         return (
             <div>
-              NEW POST CONTAINER GOES HERE
+              When a post is clicked on this will display the post 
             </div>
         )
     }

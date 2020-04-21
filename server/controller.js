@@ -17,10 +17,8 @@ module.exports = {
             console.log(req.session)
             res.status(200).send(req.session.user)
         } else {
-            console.log('running else')
             res.status(403).send('login failed')
         }
-        // console.log(req.session.user)
     },
     register: async (req, res) => {
         const db = req.app.get('db')
@@ -31,11 +29,12 @@ module.exports = {
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const newUser = await db.register_new_user([username, hash])
+        const profile_pic = `https://robohash.org/${username}`
+        const newUser = await db.register_new_user([username, hash, profile_pic])
 
         req.session.user = newUser[0]
-        console.log(req.session.user)
-        res.status(200).send(`Welcome to Helo ${username}`)
+        console.log(newUser)
+        res.status(200).send(req.session.user)
     },
     logout: (req, res) => {
         if(req.session.user){
@@ -44,8 +43,6 @@ module.exports = {
         }
     },
     getUser: (req, res) => {
-        console.log('this is from getuser')
-        console.log(req.session)
         if(req.session.user){
             res.status(200).send(req.session.user)
         } else {

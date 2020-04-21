@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { loginUser, makeUser } from '../ducks/reducer'
+import { registerUser, makeUser } from '../ducks/reducer'
 import logo from '../pictures/helo_logo.png'
 import { connect } from 'react-redux'
 import './Auth.css'
@@ -22,11 +22,13 @@ export class Auth extends Component {
     }
     handleRegister = () => {
         const body = {
+            author_id: this.props.userId,
             username: this.state.username,
             password: this.state.password
         }
         axios.post('/api/auth/register', body).then(res => {
-            this.props.loginUser(res.data)
+            console.log(res.data)
+            this.props.makeUser(res.data)
         }).catch(err => alert(`Username is Taken ${err}`))
     }
     handleLogin = () => {
@@ -74,5 +76,5 @@ export class Auth extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, { loginUser, makeUser })(Auth)
+export default connect(mapStateToProps, { registerUser, makeUser })(Auth)
 

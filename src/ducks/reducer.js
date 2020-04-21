@@ -3,12 +3,12 @@
 
 const initialState = {
     username: '',
-    profile: 'https://images.designtrends.com/wp-content/uploads/2015/12/02061350/Neon-Backgrounds.jpg',
+    profile: ``,
     userId: 0,
     isLoggedIn: false
 }
 const LOGOUT_USER = 'LOGOUT_USER'
-const LOGIN_USER = 'LOGIN_USER'
+const REGISTER_USER = 'REGISTER_USER'
 const MAKE_USER = 'MAKE_USER'
 const UPDATE_USER = 'UPDATE_USER'
 
@@ -21,9 +21,9 @@ export function updateUser(userObj){
     }
 }
 
-export function loginUser(username) {
+export function registerUser(username) {
     return {
-        type: LOGIN_USER,
+        type: REGISTER_USER,
         payload: username
     }
 }
@@ -49,8 +49,8 @@ export function makeUser(id, username, profile_pic) {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case LOGIN_USER:
-            return { ...state, username: action.payload }
+        case REGISTER_USER:
+            return { ...state, ...action.payload }
         case UPDATE_USER:
             return{...state, ...action.payload, isLoggedIn: true}
         case LOGOUT_USER:

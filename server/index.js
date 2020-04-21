@@ -39,3 +39,4 @@ app.post('/api/auth/register', authController.register)
 
 app.get('/api/posts/:id', postCtrl.getFilteredPosts)
 app.get('/api/posts', postCtrl.getEveryPost)
+app.post('/api/post', postCtrl.addNewPost)

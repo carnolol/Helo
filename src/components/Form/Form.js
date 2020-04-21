@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import pic from '../../pictures/no_image.jpg'
+import './Form.css'
 
 export class Form extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             title: '',
@@ -16,26 +19,34 @@ export class Form extends Component {
         })
     }
     addNewPost = () => {
-        
+
     }
     render() {
         return (
-            <div className='new-post-master'>
-                <h1>New Post</h1>
-                <p>Title:</p>
-                <input/>
-                <img alt='new-pic'/>
-                <p>Image URL:</p>
-                <input/>
-                <p>Content</p>
-                <input/>
-                <Link to='/dashboard'>
-                    <button onClick={() => this.addNewPost()}>post</button>
-                </Link>
-                Form to fill out a new post goes here
+            <div className='test' >
+                <div className='new-post-master'>
+                    <h1 className='form-title' >New Post</h1>
+                    <p>Title:</p>
+                    <input onChange={(e) => this.handleChange(e)}
+                    name='title'/>
+                    <img alt='new-pic' 
+                        className='form-pic'
+                        src={this.state.img ? this.state.img : pic}/>
+                    <p>Image URL:</p>
+                    <input onChange={(e) => this.handleChange(e)}
+                        name='img'/>
+                    <p>Content</p>
+                    <input onChange={(e) => this.handleChange(e)}
+                        name='content'/>
+                    <Link to='/dashboard'>
+                        <button onClick={() => this.addNewPost()}>post</button>
+                    </Link>
+            </div>
             </div>
         )
     }
 }
 
-export default Form
+const mapStateToProps = reduxState => reduxState
+
+export default connect(mapStateToProps, null)(Form)

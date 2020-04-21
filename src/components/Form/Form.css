@@ -1,0 +1,30 @@
+.new-post-master{
+    margin: 40px;
+    margin-left: 18vw;
+    height: 75vh;
+    width: 75vw;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .test{
+    background-color: cadetblue;
+} */
+
+.form-title{
+color: #ff976f;
+}
+
+.form-pic{
+border: 2px solid black;
+height: 50%;
+width: 45%;
+}
+
+p{
+    font-weight: 700;
+}

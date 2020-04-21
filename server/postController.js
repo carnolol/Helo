@@ -39,5 +39,9 @@ module.exports = {
         const everyPost = await db.get_posts()
         res.status(200).send(everyPost)
 
+    },
+    addNewPost: async (req, res) => {
+        const db =req.app.get('db')
+
     }
 }

@@ -54,10 +54,13 @@ export class Auth extends Component {
                         alt='logo' />
                     <h1 className='helo'>HELO</h1>
                     <div className="auth-container">
-                        <p>Username:</p>
+                        <p className='auth-stuff'>Username:</p>
+                        <br/>
                         <input name='username'
                             onChange={e => this.handleInput(e)} />
-                        <p>Password: </p>
+                            <br/>
+                        <p className='auth-stuff'>Password: </p>
+                        <br/>
                         <input name='password'
                             onChange={e => this.handleInput(e)} />
                         <br />

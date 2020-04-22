@@ -29,7 +29,6 @@ export class Form extends Component {
         axios.post('/api/post', body)
          }
     render() {
-        console.log(this.props)
         return (
             <div className='test' >
                 <div className='new-post-master'>

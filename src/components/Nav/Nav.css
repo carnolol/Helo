@@ -8,37 +8,43 @@
     justify-content: space-between;
     height: 100vh;
     background-image: linear-gradient(0deg,#ff7abe,#ff9770);
-    width: 11vw;
+    width: 10vw;
 }
 
 .top-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 5%;
     margin-top: 5vh;
     color: white;
 }
 
 .profile-pic-nav{
-    margin-left: 5%;
-    height: 11vh;
-    width: 80%;
+    height: 9vh;
+    width: 60%;
     box-shadow: 0 0 20px #333;
     border-radius: 50%;
+}
+
+.username{
+    margin-top: 25px;
 }
 
 .home-logo{
     margin-top: 7vh;
     margin-bottom: 8vh;
-    height: 9vh;
-    width: 70%;
+    height: 6vh;
+    width: 45%;
 }
 
 .new-post{
-    height: 9vh;
-    width: 70%;
+    height: 6vh;
+    width: 55%;
 }
 
 .power{
-    height: 8vh;
-    width: 60%;
+    height: 5vh;
+    width: 35%;
     margin-bottom: 4vh;
 }

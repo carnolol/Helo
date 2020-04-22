@@ -32,7 +32,7 @@ export class Nav extends Component {
                         className="profile-pic-nav
                     "
                         src={this.props.profile} />
-                    <p>{this.props.username}</p>
+                    <p className='username'>{this.props.username}</p>
                     <Link to='/dashboard'>
                         <img className='home-logo'
                             alt='home'

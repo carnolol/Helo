@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Dashboard.css'
+import search from '../../pictures/search_logo.png'
 import axios from 'axios'
 
 export class Dashboard extends Component {
@@ -63,7 +64,7 @@ export class Dashboard extends Component {
                         onChange={e => this.handleInput(e)}
                         name='search'
                     />
-                    <button>Magnify glass goes here</button>
+                    <img alt='glass' src={search} className='glass'/>
                     <button>Reset</button>
 
                     <p>My Posts</p>

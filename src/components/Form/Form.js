@@ -35,18 +35,21 @@ export class Form extends Component {
                     <h1 className='form-title' >New Post</h1>
                     <p>Title:</p>
                     <input onChange={(e) => this.handleChange(e)}
-                        name='title' />
+                        name='title' 
+                        className="img-input"/>
                     <img alt='new-pic'
                         className='form-pic'
                         src={this.state.img ? this.state.img : pic} />
                     <p>Image URL:</p>
                     <input onChange={(e) => this.handleChange(e)}
-                        name='img' />
+                        name='img' 
+                        className="img-input"/>
                     <p>Content</p>
                     <input onChange={(e) => this.handleChange(e)}
-                        name='content' />
+                        name='content' 
+                        className='content-container'/>
                     <Link to='/dashboard'>
-                        <button onClick={() => this.addNewPost()}>post</button>
+                        <button onClick={() => this.addNewPost()}>Post</button>
                     </Link>
                 </div>
             </div>

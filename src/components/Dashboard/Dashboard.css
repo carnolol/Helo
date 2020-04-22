@@ -13,7 +13,7 @@
 .search-bar{
     vertical-align: baseline;
     margin-top: 5vh;
-    /* margin-left: 15vw; */
+    margin-left: 10vw;
     height: 10vh;
     width: 60vw;
     box-shadow: 0 0 9px #333;
@@ -23,10 +23,14 @@
     align-items:center
 }
 
+.glass{
+    background-color: tomato;
+}
+
 .single-post{
-    margin-top: 25px;
+    margin-top: 15px;
     vertical-align: baseline;
-    /* margin-left: 15vw; */
+    margin-left: 10vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +41,7 @@
 
 .post-title{
     font-weight: 700;
+    color: black;
     margin-left: 20px;
 }
 
@@ -49,6 +54,7 @@
 
 .post-username{
     margin-right: 30px;
+    color: black;
 }
 
 .post-profile-pic{

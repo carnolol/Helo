@@ -20,11 +20,21 @@ color: #ff976f;
 }
 
 .form-pic{
-border: 2px solid black;
+box-shadow: 0 0 10px black;
 height: 50%;
 width: 45%;
 }
 
 p{
     font-weight: 700;
+}
+
+.img-input{
+    width: 80%;
+}
+
+.content-container{
+    width: 80%;
+    height: 15%;
+    box-shadow: 0 0 5px black;
 }

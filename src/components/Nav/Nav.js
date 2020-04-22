@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {logoutUser, updateUser} from '../../ducks/reducer'
+import {logoutUser, updateUser, makeUser} from '../../ducks/reducer'
 import axios from 'axios'
 import home from '../../pictures/home_logo.png'
 import newPostLogo from '../../pictures/new_logo.png'
@@ -14,7 +14,7 @@ export class Nav extends Component {
     componentDidMount = () => {
         // hit endpoint GetUser from backend here & put on redux
         axios.get('/api/auth/user').then(res => {
-            this.props.updateUser(res.data)
+            this.props.makeUser(res.data)
         })
     }
     handleLogout = () => {
@@ -57,5 +57,5 @@ export class Nav extends Component {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {logoutUser, updateUser})(Nav)
+export default connect(mapStateToProps, {logoutUser, updateUser, makeUser})(Nav)
 // might need to change null

@@ -56,8 +56,7 @@ export default function reducer(state = initialState, action) {
         case LOGOUT_USER:
             return {...state, ...action.payload}
         case MAKE_USER:
-            return { ...state, username: action.payload.id.username, profile_pic: action.payload.id.profile_pic, userId: action.payload.id.id} 
-            // we can add more stuff here if we need too
+            return { ...state, username: action.payload.id.username, profile: action.payload.id.profile_pic, userId: action.payload.id.id} 
         default:
             return initialState
     }

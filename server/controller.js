@@ -33,7 +33,8 @@ module.exports = {
         const newUser = await db.register_new_user([username, hash, profile_pic])
 
         req.session.user = newUser[0]
-        console.log(newUser)
+        console.log('new user')
+        console.log(req.session.user)
         res.status(200).send(req.session.user)
     },
     logout: (req, res) => {

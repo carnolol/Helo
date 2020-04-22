@@ -24,10 +24,11 @@ export class Auth extends Component {
         const body = {
             author_id: this.props.userId,
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            profile_pic: this.props.profile
         }
         axios.post('/api/auth/register', body).then(res => {
-            console.log(res.data)
+            console.log('data going into redux', res.data)
             this.props.makeUser(res.data)
         }).catch(err => alert(`Username is Taken ${err}`))
     }
@@ -40,12 +41,11 @@ export class Auth extends Component {
             .post('/api/auth/login', body)
             .then(res => {
                 this.props.makeUser(res.data)
-                // need to do props histy push stufF?
             }).catch( err => alert(`Unable to login because username does not exist ${err}`))
     }
     refresh
     render() {
-        // console.log('redux state????', this.props)
+        console.log('redux state????', this.props)
         return (
             <div className='landing-page'>
                 <div className='auth-form'>

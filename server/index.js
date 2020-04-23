@@ -39,5 +39,6 @@ app.get('/api/auth/user', authController.getUser)
 
 
 app.get('/api/posts/:id', postCtrl.getFilteredPosts)
+app.get('/api/post/:postid', postCtrl.getOnePost)
 app.get('/api/posts', postCtrl.getEveryPost)
 app.post('/api/post', postCtrl.addNewPost)

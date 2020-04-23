@@ -14,25 +14,34 @@ export class Dashboard extends Component {
             checked: true
         }
     }
-    componentDidMount = () => {
-        axios.get('/api/posts').then(res => this.setState({ posts: res.data }))
+    // componentDidMount = () => {
+    //     axios.get('/api/posts').then(res => this.setState({ posts: res.data }))
 
+    // }
+    componentDidMount = () => {
+        axios.get(`/api/posts`).then(res => this.setState({ posts: res.data }))
+        this.setState({ search: '' })
     }
-    componentDidUpdate = (prevState) => {
-        if (prevState.posts !== this.state.posts) {
-            this.componentDidMount()
-        }
-    }
-    getFilteredPosts = () => { // working here. 1030pm
-        axios.get(`/api/posts/${this.props.userId}?userposts=${this.state.checked}&search=${this.state.search}`).then(res => {
+    // componentDidUpdate = (prevState) => {
+    //     if (prevState.posts !== this.state.posts) {
+    //         this.componentDidMount()
+    //     }
+    // }
+    getFilteredPosts = () => {
+        let post = this.state.posts.map(post => post)
+        console.log('POST:', post)
+        axios.get(`/api/posts/${post.id}?userposts=${this.state.checked}&search=${this.state.search}`).then(res => {
             this.setState({
                 posts: res.data
             })
         }).catch(err => console.log(err))
-        // not sure how to finish this. 
     }
     resetSearch = () => {
-        this.setState({search: ''})
+        this.setState({ search: '' })
+    }
+    handleReset = () => {
+        this.resetSearch()
+        this.componentDidMount()
     }
     handleEdit = () => {
         this.setState({
@@ -45,7 +54,7 @@ export class Dashboard extends Component {
         })
     }
     render() {
-        // console.log('daskboard posts', this.state.posts)
+        // console.log('daskboard posts', this.state.posts.id)
         const allPosts = this.state.posts.map(post => {
             return <Link to={`/post/${post.post_id}`}>
                 <div className='single-post'>
@@ -64,9 +73,9 @@ export class Dashboard extends Component {
                         onChange={e => this.handleInput(e)}
                         name='search'
                     />
-                    <img alt='glass' src={search} className='glass'/>
-                    <button>Reset</button>
-
+                    <img alt='glass' src={search} className='glass'
+                        onClick={() => this.getFilteredPosts()} />
+                    <button onClick={() => this.componentDidMount()}>Reset</button>
                     <p>My Posts</p>
                     <input type='checkbox' onClick={() => this.handleEdit()} />
                 </div>

@@ -1,0 +1,14 @@
+.post-display-container{
+    height: 60vh;
+    width: 80vw;
+    display: flex;
+    box-shadow: 0 0 15px black;
+    margin-left: 15vw;
+    margin-top: 10vh;
+}
+
+.postz-title{
+    display: flex;
+    color: orange;
+    font-size: 3rem;
+}

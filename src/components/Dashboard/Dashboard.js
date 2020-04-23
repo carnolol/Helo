@@ -45,9 +45,9 @@ export class Dashboard extends Component {
         })
     }
     render() {
-        // console.log(this.state.posts)
+        // console.log('daskboard posts', this.state.posts)
         const allPosts = this.state.posts.map(post => {
-            return <Link to={`/post/${post.id}`}>
+            return <Link to={`/post/${post.post_id}`}>
                 <div className='single-post'>
                     <h3 className='post-title' >{post.title}</h3>
                     <div className='name'  >

@@ -45,7 +45,7 @@ export class Auth extends Component {
     }
     refresh
     render() {
-        console.log('redux state????', this.props)
+        // console.log('redux state????', this.props)
         return (
             <div className='landing-page'>
                 <div className='auth-form'>

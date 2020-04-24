@@ -54,8 +54,7 @@ module.exports = {
     getOnePost: async (req, res) => {
         const db = req.app.get('db')
         const {postid} = req.params
-        // const postid = parseInt(id)
-        const onePost = await db.get_single_post(postid)
+        const onePost = await db.get_single(postid)
         console.log(onePost[0])
         res.status(200).send(onePost[0])
     }

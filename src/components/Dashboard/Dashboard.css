@@ -20,7 +20,12 @@
     display: flex;
     justify-content: space-around;
     align-content: space-between;
-    align-items:center
+    align-items:center;
+    cursor: pointer;
+}
+
+button{
+    cursor:pointer;
 }
 
 .glass{

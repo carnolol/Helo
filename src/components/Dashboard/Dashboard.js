@@ -20,7 +20,6 @@ export class Dashboard extends Component {
     // }
     componentDidMount = () => {
         axios.get(`/api/posts`).then(res => this.setState({ posts: res.data }))
-        this.setState({ search: '' })
     }
     // componentDidUpdate = (prevState) => {
     //     if (prevState.posts !== this.state.posts) {
@@ -54,7 +53,6 @@ export class Dashboard extends Component {
         })
     }
     render() {
-        // console.log('daskboard posts', this.state.posts.id)
         const allPosts = this.state.posts.map(post => {
             return <Link to={`/post/${post.post_id}`}>
                 <div className='single-post'>

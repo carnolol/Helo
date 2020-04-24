@@ -23,7 +23,6 @@ export class Nav extends Component {
         }) 
     }
     render() {
-        // console.log('redux props??', this.props)
         return (
             <div className='nav-bar'>
                 <div className='top-nav'>
@@ -58,4 +57,4 @@ export class Nav extends Component {
 const mapStateToProps = reduxState => reduxState
 
 export default connect(mapStateToProps, {logoutUser, updateUser, makeUser})(Nav)
-// might need to change null
+

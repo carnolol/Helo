@@ -2,6 +2,8 @@
     height: 50vh;
     width: 60vw;
     display: flex;
+    justify-content: center;
+    /* align-items: center; */
     box-shadow: 0 0 15px black;
     margin-left: 25vw;
     margin-top: 10vh;
@@ -16,8 +18,8 @@
 }
 
 .post-img{
-    height: 55%;
-    width: 55%;
+    height: 65%;
+    width: 70%;
     box-shadow: 0 0 8px;
     border-radius: 10px;
 }
@@ -31,7 +33,12 @@
 
 .content-and-profile{
     display: flex;
-    justify-content: center;
+    width: 65%;
+    /* margin-left: 30px; */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-around;
+
 }
 
 .post-content{
@@ -39,11 +46,33 @@
 
 }
 
+.post-username{
+    margin-top: 7.5%;
+    padding-left: 25px;
+}
+
 .robot-profile-pic{
-    margin-top: 5%;
+    /* margin-top: 5%; */
     height: 8vh;
     width: 5vw;
     border-radius: 50%;
     box-shadow: 0 0 5px black;
-    margin-left: 5%;
+    /* margin-right: 5%; */
+}
+
+.delete-post-btn{
+    background-color: gray;
+    padding: 4px;
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+    margin-top: 5%;
+    box-shadow: 0 4px 9px black;
+    cursor: pointer;
+    /* margin-bottom: 95%; */
+}
+
+.text-to-display{
+    /* display: flex; */
+    /* flex-direction: column; */
 }

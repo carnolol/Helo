@@ -57,5 +57,11 @@ module.exports = {
         const onePost = await db.get_single(postid)
         console.log(onePost[0])
         res.status(200).send(onePost[0])
+    },
+    deletePost: async (req, res) => {
+        const db = req.app.get('db')
+        const {post_id} = req.params
+        const postToDelete = await db.delete_post([post_id])
+        res.status(200).send(postToDelete)
     }
 }

@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.input-and-glass{
+    /* display: flex; */
+}
+
 .search-bar{
     vertical-align: baseline;
     margin-top: 5vh;
@@ -24,12 +28,22 @@
     cursor: pointer;
 }
 
+.search-input{
+    width: 65%;
+    padding: 8px;
+}
+
 button{
     cursor:pointer;
 }
 
 .glass{
     background-color: tomato;
+    padding: .6%;
+}
+
+.reset{
+
 }
 
 .single-post{

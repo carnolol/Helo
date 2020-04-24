@@ -67,13 +67,15 @@ export class Dashboard extends Component {
         return (
             <div className='dashboard-main'>
                 <div className='search-bar'>
-                    <input placeholder='Search by Title'
+                    <input className='search-input'
+                    placeholder='Search by Title'
                         onChange={e => this.handleInput(e)}
                         name='search'
                     />
                     <img alt='glass' src={search} className='glass'
                         onClick={() => this.getFilteredPosts()} />
-                    <button onClick={() => this.componentDidMount()}>Reset</button>
+                    <button className='reset'
+                    onClick={() => this.componentDidMount()}>Reset</button>
                     <p>My Posts</p>
                     <input type='checkbox' onClick={() => this.handleEdit()} />
                 </div>
